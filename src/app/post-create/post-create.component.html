@@ -3,10 +3,18 @@
 <!-- when [value], if you want a string, then wrap in '' -->
 <!-- NgModel is an angular directive, used in two way biding, basically it's a instruction you place in a HTML element -->
 <!-- ngModel is a dirctive that listens to user input -->
-<textarea rows="6" [(ngModel)]="enteredValue"></textarea>
-<hr>
+<!-- we need a wrapper for the material componenet to work -->
+<mat-card>
+    <mat-form-field>
+        <textarea matInput rows="6" [(ngModel)]="enteredValue"></textarea>
+    </mat-form-field>
+    <button 
+        mat-raised-button 
+        color="primary"
+        (click)="onAddPost()">Save Post</button>
+</mat-card>
 <!-- listening to events: how does a button work - event biding-->
 <!-- tipically we a pass the name of methos on the post-create.ts-->
-<button (click)="onAddPost()">Save Post</button>
+
 <!-- to output something, use string interpolation -->
 <p>{{ newPost }}</p>
