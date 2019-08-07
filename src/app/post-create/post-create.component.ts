@@ -6,8 +6,14 @@ import { Component, OnInit } from '@angular/core';
   //styleUrls: ['./post-create.component.css']
 })
 export class PostCreateComponent implements OnInit {
+  enteredValue = '';
+  /* set and store a content */
+  //store a content is a property (a variable in a class)
+  newPost ='NO CONTENT';
   onAddPost(){
-    console.log("deu certo");
+    //this will fetch the user's input/output
+    this.newPost = this.enteredValue;
+    
   }
 
   constructor() { }
