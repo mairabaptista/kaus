@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { Post } from '../post-model';
+import { PostService } from '../posts.service';
+import { post } from 'selenium-webdriver/http';
 
 @Component({
   selector: 'app-post-list',
@@ -12,8 +16,10 @@ export class PostListComponent implements OnInit {
     {title: 'Second Post', content: 'This is my second post'},
     {title: 'Third Post', content: 'This is my third post'},
   ];*/
-  posts = [];
-  constructor() { }
+  @Input() posts: Post[] = [];
+
+  postService: PostService;
+  constructor(public postsService: PostService) { }
 
   ngOnInit() {
   }

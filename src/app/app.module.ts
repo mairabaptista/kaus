@@ -8,6 +8,7 @@ import { PostCreateComponent } from './post-create/post-create.component';
 import { MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule, MatExpansionModule } from '@angular/material';
 import { HeaderComponent } from './header/header.component';
 import { PostListComponent } from './post-list/post-list.component';
+import { PostService } from './posts.service';
 
 
 @NgModule({

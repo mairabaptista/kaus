@@ -5,13 +5,33 @@
 <!-- ngModel is a dirctive that listens to user input -->
 <!-- we need a wrapper for the material componenet to work -->
 <mat-card>
-    <mat-form-field>
-        <textarea matInput rows="6" [(ngModel)]="enteredValue"></textarea>
-    </mat-form-field>
-    <button 
-        mat-raised-button 
-        color="primary"
-        (click)="onAddPost()">Save Post</button>
+    <form (submit)="onAddPost(postForm)" #postForm="ngForm">   <!-- gives acces to this object angular created -->
+        <mat-form-field>
+            <input 
+                matInput 
+                type="text"
+                name="title"
+                ngModel
+                required
+                minlength="3"
+                #title="ngModel">
+                <mat-error *ngIf="title.invalid">Please enter a post title</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <textarea 
+                matInput 
+                rows="6" 
+                name="content"
+                ngModel
+                required
+                #content="ngModel"></textarea>
+                <mat-error *ngIf="content.invalid">Please enter a post</mat-error>
+        </mat-form-field>
+        <button 
+            mat-raised-button 
+            color="primary"
+            type="submit">Save Post</button>
+    </form>
 </mat-card>
 <!-- listening to events: how does a button work - event biding-->
 <!-- tipically we a pass the name of methos on the post-create.ts-->
